@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -20,14 +21,53 @@ public class Node {
         this.edges = new ArrayList<>();
         this.receivedMessages = new ArrayList<>();
         this.hopToRoot = this;
+        this.root = this;
         this.lengthToRoot = 0;
     }
 
     //returns whether the routing info was changed
     public boolean computeMessages() {
 
+        boolean changedInfo = false;
 
+        for (Message message : receivedMessages) {
 
+            int totalLengthToRoot = message.getLengthToRoot() + message.getLengthToSrc();
+
+            if (this.root.id < message.getRoot().getId()) {
+                this.root = message.getRoot();
+                this.hopToRoot = message.getSrc();
+                this.lengthToRoot = totalLengthToRoot;
+
+                changedInfo = true;
+                continue;
+            }
+
+            if (this.lengthToRoot > totalLengthToRoot) {
+                this.hopToRoot = message.getSrc();
+                this.lengthToRoot = totalLengthToRoot;
+
+                changedInfo = true;
+                continue;
+            }
+
+        }
+
+        receivedMessages = new ArrayList<>();
+
+        return changedInfo;
+
+    }
+
+    public String getOutputString() {
+        String ret = "";
+
+        ret += this.name;
+        ret += " -> ";
+        ret += this.hopToRoot.getName();
+        ret += ";";
+
+        return ret;
     }
 
     @Override
@@ -63,6 +103,14 @@ public class Node {
         this.lengthToRoot = lengthToRoot;
     }
 
+    public Node getRoot() {
+        return root;
+    }
+
+    public void setRoot(Node root) {
+        this.root = root;
+    }
+
     public char getName() {
         return name;
     }
@@ -85,14 +133,6 @@ public class Node {
 
     public void setHopToRoot(Node hopToRoot) {
         this.hopToRoot = hopToRoot;
-    }
-
-    public boolean isRootChanged() {
-        return rootChanged;
-    }
-
-    public void setRootChanged(boolean rootChanged) {
-        this.rootChanged = rootChanged;
     }
 
     public Edge[] getEdges() {

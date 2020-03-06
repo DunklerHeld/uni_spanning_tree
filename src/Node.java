@@ -34,7 +34,7 @@ public class Node {
 
             int totalLengthToRoot = message.getLengthToRoot() + message.getLengthToSrc();
 
-            if (this.root.id < message.getRoot().getId()) {
+            if (this.root.id > message.getRoot().getId()) {
                 this.root = message.getRoot();
                 this.hopToRoot = message.getSrc();
                 this.lengthToRoot = totalLengthToRoot;
@@ -43,7 +43,8 @@ public class Node {
                 continue;
             }
 
-            if (this.lengthToRoot > totalLengthToRoot) {
+            if (this.root.id == message.getRoot().getId() &&
+                    this.lengthToRoot > totalLengthToRoot) {
                 this.hopToRoot = message.getSrc();
                 this.lengthToRoot = totalLengthToRoot;
 

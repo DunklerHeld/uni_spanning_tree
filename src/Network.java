@@ -103,14 +103,17 @@ public class Network {
                 cont |= nodes.get(c).computeMessages();
             }
 
+            //output results
+            for (char c : nodes.keySet()) {
+                System.out.println(nodes.get(c).getOutputString() + " - " + nodes.get(c).getLengthToRoot());
+            }
+            System.out.println();
+            System.out.println();
 
         } while (cont);
 
 
-        //output results
-        for (char c : nodes.keySet()) {
-            System.out.println(nodes.get(c).getOutputString());
-        }
+
 
     }
 

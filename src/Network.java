@@ -92,8 +92,11 @@ public class Network {
 
         //start simulation
         boolean cont;
+        int iteration = 0;
+
         do {
             cont = false;
+            iteration++;
 
             for (char c : nodes.keySet()) {
                 nodes.get(c).sendMessages();
@@ -104,6 +107,7 @@ public class Network {
             }
 
             //output results
+            System.out.println("Network status after " + iteration + " iterations");
             for (char c : nodes.keySet()) {
                 System.out.println(nodes.get(c).getOutputString() + " - " + nodes.get(c).getLengthToRoot());
             }

@@ -7,10 +7,10 @@ Dieses Projekt wurde in Java mir IntelliJ geschrieben. Eine kompilierte, ausfüh
 Das Programm arbeitet am Besten mit klaren Ein- und Ausgabedateien, welche als erstes und zweites Argument übergeben werden sollten. Falls keine Ausgabedatei spezifiziert ist, so wird die Ausgabe zu stdout geschrieben.
 
 _Beispiele:_
+
 ```Spanning_Tree_Protocol_executable.jar ./inputFile.txt ./outputFile.txt```
 
 ```Spanning_Tree_Protocol_executable.jar ./inputFile.txt```
-
 
 ```java -jar Spanning_Tree_Protocol_executable.jar ./inputFile.txt ./outputFile.txt```
 

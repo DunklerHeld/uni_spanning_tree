@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Spanning Tree Protocol:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Spanning_Tree_Protocol_jar</output-path>
+    <root id="archive" name="Spanning Tree Protocol.jar">
+      <element id="module-output" name="Spanning Tree Protocol" />
+    </root>
+  </artifact>
+</component>

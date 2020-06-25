@@ -186,7 +186,8 @@ public class Network {
 
             simulate(network);
 
-            outputFileWriter.close();
+            if (outputToFile)
+                outputFileWriter.close();
 
         } catch (FileNotFoundException e) {
             System.err.println(e.getMessage());

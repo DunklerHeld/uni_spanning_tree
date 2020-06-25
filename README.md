@@ -8,9 +8,12 @@ Das Programm arbeitet am Besten mit klaren Ein- und Ausgabedateien, welche als e
 
 _Beispiele:_
 ```Spanning_Tree_Protocol_executable.jar ./inputFile.txt ./outputFile.txt```
+
 ```Spanning_Tree_Protocol_executable.jar ./inputFile.txt```
 
+
 ```java -jar Spanning_Tree_Protocol_executable.jar ./inputFile.txt ./outputFile.txt```
+
 ```java -jar Spanning_Tree_Protocol_executable.jar ./inputFile.txt```
 
 Falls ein Aufruf ohne gegebenes Argument für eine Eingabedatei getätigt wird, so öffnet das Programm einen FileChooser, falls möglich. Jedoch ist diese Art der Verwendung nicht empfohlen.
